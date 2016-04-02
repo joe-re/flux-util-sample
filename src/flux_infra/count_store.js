@@ -1,16 +1,17 @@
 import { ReduceStore } from 'flux/utils';
 import Dispatcher from './dispatcher';
+import * as CounterAction from './actions';
 
 class CounterStore extends ReduceStore {
   getInitialState() { return 0; }
 
   reduce(state, action) {
     switch (action.type) {
-    case 'increment':
+    case CounterAction.INCREMENT:
       return state + 1;
 
-    case 'square':
-      return state * state;
+    case CounterAction.DECREMENT:
+      return state - 1;
 
     default:
       return state;
